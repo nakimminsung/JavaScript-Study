@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Mochiy+Pop+One&family=Nanum+Pen+Script&family=Single+Day&display=swap");
+body * {
+  font-family: "Single Day";
+}
+.btn {
+  width: 120px;
+  height: 35px;
+  font-family: "Jua";
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.btn-green {
+  background-color: aquamarine;
+  color: black;
+}
+
+.btn-pink {
+  background-color: pink;
+  color: blueviolet;
+}
+
+.btn-black {
+  background-color: black;
+  color: white;
+}

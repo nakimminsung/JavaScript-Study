@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body{
+            background-color: #add8e6;
+        }
+        div.container{
+            width: 640px;
+            height: 120px;
+            background-color: white;
+            margin-left: 200px;
+            margin-top: 80px;
+            border-radius: 100px;
+        }
+
+        div.lotto{
+            float:left;
+            font-size: 45px;
+            font-family: 'Jua';
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            border-radius: 100px;
+            background-color: #ffb6c1;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        div.day{
+            margin-top: 50px;
+            margin-left: 300px;
+            font-size: 2.5em;
+        }
+
+        div.day b{
+            color: blue;
+        }
+
+        #btnlotto{
+            width: 200px;
+            height: 2.5em;
+            margin-left: 400px;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var s1 = document.querySelector("div.day>span")
+        
+
+            // 현재 날짜
+
+            var date = new Date();
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+
+            var s = y+"-"+(m<10?"0":"")+m+"-"+(d<10?"0":"")+d;
+            s1.style.color = "gray"
+            s1.style.fontSize = "26px"
+            s1.innerHTML=s;
+
+            //버튼 이벤트
+            document.getElementById("btnlotto").onclick=function(){
+                //div.lotto의 요소값을 배열형태로 구하기
+                var dlotto = document.querySelectorAll("div.lotto");
+                //예 : 1번을 변경해보자
+                dlotto[1].style.color="white";
+                dlotto[1].style.backgroundColor = "orange";
+                dlotto[1].innerHTML = "9";
+                 //예 : 4번을 변경해보자
+                dlotto[4].style.color="yellow";
+                dlotto[4].style.backgroundColor = "purple";
+
+                //1~45 랜덤값을 중복되지 않게 구한 후 위에 배열에 넣어주세요
+                // 단 오름 차순 정렬로 넣어주세요
+                var lotto = new Array(6);
+                //6개의 난수 구하기 (중복처리)
+                for(var i = 0; i<lotto.length; i++){
+                        lotto[i] = parseInt(Math.random()*45)+1; // 1~45
+                        for(var j=0; j<i; j++){
+                            if(lotto[i]==lotto[j]){
+                                i--;
+                                break;
+                            }
+                        }
+                }
+                //오름차순 정렬
+                for(var i = 0; i<lotto.length-1; i++){
+                    for(var j = i+1; j<lotto.length; j++){
+                        if(lotto[i]>lotto[j]){
+                            var temp = lotto[i];
+                            lotto[i] = lotto[j];
+                            lotto[j] = temp;
+                        }
+                    }
+                }
+                //출력
+                for(var i = 0; i<lotto.length; i++){
+                    dlotto[i].innerHTML=lotto[i];
+                }
+
+                // 0~6사이의 랜덤값을 구해서 그 번지의 배경색을
+                // 역시 랜덤하게 변경해보자
+                var idx = parseInt(Math.random()*6);
+
+                var r = parseInt(Math.random()*256);
+                var g = parseInt(Math.random()*256);
+                var b = parseInt(Math.random()*256);
+
+                dlotto[idx].style.color="white";
+                // dlotto[idx].style.backgroundColor=`rgba(${r},${g},${b},1)`; //es6
+                dlotto[idx].style.backgroundColor="rgba("+r+","+g+","+b+",1)"; //es5
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="day">
+        <b>1026</b>회
+        <span></span>
+    </div>
+    <div class="container">
+        <div class="lotto">1</div>
+        <div class="lotto">2</div>
+        <div class="lotto">3</div>
+        <div class="lotto">4</div>
+        <div class="lotto">5</div>
+        <div class="lotto">6</div>
+    </div>
+
+    <button type="button" class="btn btn-green" id="btnlotto">로또 숫자 구하기</button>
+</body>
+</html>

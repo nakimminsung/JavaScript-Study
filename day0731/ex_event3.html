@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href="../style.css">
+    <style>
+        div.bit{
+            font-size: 28px;
+            font-family: 'Jua';
+            margin-top: 20px;
+            border: 2px solid orange;
+            padding: 20px 30px;
+            width: 400px;
+            height: 110px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button"   class="btn btn-green" id="btn">클릭하세요</button>
+    <div class="bit"></div>
+    <script>
+        document.getElementById("btn").onclick = function(){
+            var bit = document.querySelector(".bit");
+            var name = prompt("당신의 이름은?","이하니");
+            bit.innerHTML = "내이름은" +name+ "입니다";
+        }
+    </script>
+</body>
+</html>

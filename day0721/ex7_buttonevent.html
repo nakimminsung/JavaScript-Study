@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <!--외부 css 파일 가져오기-->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+
+    </style>
+    <script>
+        //처음 로드시 호출되는 이벤트
+        window.onload = function () {
+            //각종 이벤트는 이 안에서 코딩
+            //버튼3 이벤트
+            var b3 = document.getElementById("btn3");
+            b3.onclick = function () {
+                var name = prompt("당신의 이름은??", "송혜교");
+                if (name == null)
+                    alert("취소버튼을 눌렀네요!!");
+                else
+                    alert("내 이름은 " + name + "입니다");
+            }
+        }
+
+        function hello() {
+            var ans = confirm("정말 삭제하시겠습니까?");
+            console.log(ans);//크롬 콘솔에서 확인하기,반환타입이 true/false
+            if (ans)
+                alert("데이타를 삭제했습니다!!");
+            else
+                alert("삭제작업을 취소했습니다!");
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" class="btn btn-green" onclick="alert('안녕하세요!!')">alert</button>
+    <input type="button" value="confirm" class="btn btn-pink" onclick="hello()">
+    <button type="button" class="btn btn-black" id="btn3">prompt</button>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
