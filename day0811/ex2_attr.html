@@ -64,6 +64,23 @@
                 window.open("../day0810/ex5_calendar.html", "W",
                     "width=" + w + "px,height=" + h + "px,left=400px,top100px")
             })
+
+            //figure>img 클릭시 src를 얻어서 전체 img중 2번 이후에 
+            //모두 같은 이미지로 넣고...
+            $("figure>img").click(function () {
+                //해당 이미지 소스를 얻는다
+                var selectImg = $(this).attr("src");
+                //전체 img중 인덱스 2번 이후의 모든 img에 적용
+                $("img:gt(2)").attr("src", selectImg) // 2번은 포함 안됨
+
+                //클릭한 이미지의 다음태그 안의 text를 얻어서 2번째 h3에 넣기
+                //next() : 다음태그, prev() : 이전 태그 
+
+                //html() : js의 innerHTML  
+                //text() : js의 innerText 와 같다
+                var foodName = $(this).next().text();
+                $("h3:eq(1)").text(foodName);
+            })
         })
     </script>
 </head>
@@ -74,6 +91,10 @@
     <figure>
         <img src="../음식사진/10.jpg">
         <figcaption>에그마요덮밥</figcaption>
+    </figure>
+    <figure>
+        <img src="../음식사진/11.jpg">
+        <figcaption>망고빙수</figcaption>
     </figure>
 
     <h3>첫번째 이미지를 클릭하면 아래의 이미지에 카피하기</h3>
