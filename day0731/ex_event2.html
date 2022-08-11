@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <img src = "../쇼핑몰사진/8.jpg" width="200" height="180" id="img1">
 
-    <div id = "result" style="font-size : 20px;"></div>
+<body>
+    <img src="../쇼핑몰사진/8.jpg" width="200" height="180" id="img1">
+
+    <div id="result" style="font-size : 20px;"></div>
 
     <script>
-        document.getElementById("img1").onclick=function(){
+        document.getElementById("img1").onclick = function () {
             var r = document.getElementById("result");
             var s = "이미지 정보<br>";
-            s+="이미지명:"+this.getAttribute("src")+"<br>";
-            s+="너비:"+this.getAttribute("width")+"<br>";
-            s+="높이:"+this.getAttribute("height")+"<br>";
+            s += "이미지명:" + this.getAttribute("src") + "<br>";
+            s += "너비:" + this.getAttribute("width") + "<br>";
+            s += "높이:" + this.getAttribute("height") + "<br>";
 
-            
-            
-            r.innerHTML = s; 
+
+
+            r.innerHTML = s;
         }
     </script>
 </body>
+
 </html>

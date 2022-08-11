@@ -11,45 +11,45 @@
         href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap=Single+Day&display=swap"
         rel="stylesheet">
     <style>
-        div.login{
-            margin:100px 300px;
+        div.login {
+            margin: 100px 300px;
             border: 5px solid gray;
             width: 320px;
             border-radius: 10px;
         }
     </style>
     <script>
-        window.onload=function(){
+        window.onload = function () {
             init_check();
 
             //로그인 버튼 이벤트 
-            document.getElementById("btnlogin").onclick=function(){
+            document.getElementById("btnlogin").onclick = function () {
                 //아이디 저자으이 체크값 알아내기(true/false)
                 var chksave = document.getElementById("chksave").checked;
                 console.log(chksave);
                 var myid = document.getElementById("myid").value;
                 var mypass = document.getElementById("mypass").value;
 
-                if(mypass=='1234'){
+                if (mypass == '1234') {
                     //로칼 스토리지에 체크값과 아이디를 저장해둔다
-                    localStorage.chksave=chksave;
-                    localStorage.myid=myid;
+                    localStorage.chksave = chksave;
+                    localStorage.myid = myid;
                     //메인페이지로 이동한다
-                    location.href="ex3_storage.html"
-                }else{
+                    location.href = "ex3_storage.html"
+                } else {
                     alert("비번이 맞지 않습니다")
                 }
             }
         } // onload
-        function init_check(){
+        function init_check() {
             //로칼 스토리지로부터 체크값과 아이디를 얻는다
-            var chksave=localStorage.chksave;
-            var myid=localStorage.myid;
-            if(chksave=='true'){
-                document.getElementById("myid").value=myid;
-                document.getElementById("chksave").setAttribute("checked",true)
-            }else{
-                document.getElementById("myid").value="";
+            var chksave = localStorage.chksave;
+            var myid = localStorage.myid;
+            if (chksave == 'true') {
+                document.getElementById("myid").value = myid;
+                document.getElementById("chksave").setAttribute("checked", true)
+            } else {
+                document.getElementById("myid").value = "";
                 document.getElementById("chksave").removeAttribute("checked")
             }
         }
@@ -65,23 +65,20 @@
                 </td>
             </tr>
             <tr>
-                <th style="width: 100px;"  class="table-info">아이디</th>
+                <th style="width: 100px;" class="table-info">아이디</th>
                 <td>
-                    <input type="text" id="myid" class="form-control"
-                    placeholder="아이디" autofocus>
+                    <input type="text" id="myid" class="form-control" placeholder="아이디" autofocus>
                 </td>
             </tr>
             <tr>
-                <th style="width: 100px;"  class="table-info">비밀번호</th>
+                <th style="width: 100px;" class="table-info">비밀번호</th>
                 <td>
-                    <input type="password" id="mypass" class="form-control"
-                    placeholder="비밀번호">
+                    <input type="password" id="mypass" class="form-control" placeholder="비밀번호">
                 </td>
             </tr>
             <tr>
                 <td colspan="2" class="table-danger" align="center">
-                    <button type="button" id="btnlogin" class="btn btn-default" 
-                    style="width:100px">회원로그인</button>
+                    <button type="button" id="btnlogin" class="btn btn-default" style="width:100px">회원로그인</button>
                 </td>
             </tr>
         </table>

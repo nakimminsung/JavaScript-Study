@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        #photo{
+        #photo {
             width: 400px;
             height: 470px;
             border: 10px groove gray;
         }
-        .msg{
+
+        .msg {
             font-size: 27px;
             font-family: 'Jua';
             margin-left: 20px;
@@ -20,36 +22,38 @@
         }
     </style>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var p = document.getElementById("photo");
             var m = document.querySelector(".msg");
             // 1초마다 연예인 사진이 바뀌게 하기
             // 배열
-            var sarr = ["재미있는 자바스크립트","오늘은 비가 오네요","이번주는 덥고 습한날씨가 될 듯"];
-            var carr = ["red","green","magenta","orange","blue","gray","black"];
+            var sarr = ["재미있는 자바스크립트", "오늘은 비가 오네요", "이번주는 덥고 습한날씨가 될 듯"];
+            var carr = ["red", "green", "magenta", "orange", "blue", "gray", "black"];
 
 
             setInterval(() => {
                 // 1 ~ 20사이의 난수 발생 후 이미지 변경하기
-                var num = parseInt(Math.random()*20)+1;
+                var num = parseInt(Math.random() * 20) + 1;
                 // 이미지 변경
                 //p.setAttribute("src","../연예인사진/"+num+".jpg");
-                p.setAttribute("src",`../연예인사진/${num}.jpg`) // es6에서 추가된 기능                
+                p.setAttribute("src", `../연예인사진/${num}.jpg`) // es6에서 추가된 기능                
             }, 500);
             setInterval(() => {
-                var sidx = parseInt(Math.random()*3); // 0~2사이 랜덤값
+                var sidx = parseInt(Math.random() * 3); // 0~2사이 랜덤값
                 m.innerHTML = sarr[sidx];
             }, 2000);
             setInterval(() => {
-                var cidx = parseInt(Math.random()*7)
+                var cidx = parseInt(Math.random() * 7)
                 m.style.color = carr[cidx];
                 m.innerHTML = sarr[sidx];
             }, 1000);
         }
     </script>
 </head>
+
 <body>
     <img src="../연예인사진/15.jpg" id="photo">
     <div class="msg">111</div>
 </body>
+
 </html>

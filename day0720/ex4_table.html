@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .tb1,.tb2{
+        .tb1,
+        .tb2 {
             width: 400px;
-            border:3px solid gray;
-            border-collapse: collapse;/*칸과칸사이 여백 없애기*/
+            border: 3px solid gray;
+            border-collapse: collapse;
+            /*칸과칸사이 여백 없애기*/
         }
 
-        .tb1 td,.tb1 th{
+        .tb1 td,
+        .tb1 th {
             border: 1px solid green;
         }
 
-        .tb2 td,.tb2 th{
+        .tb2 td,
+        .tb2 th {
             border: 1px solid gray;
         }
 
-        .tb1 tr th{
+        .tb1 tr th {
             background-color: cornflowerblue;
             color: white;
         }
 
-        .tb1 tr td{
+        .tb1 tr td {
             background-color: #ccc;
             color: blue;
         }
 
         /*마우스를 올렸을때 속성*/
-        .tb1 tr td:hover{
+        .tb1 tr td:hover {
             background-color: black;
-            color:white;
+            color: white;
         }
 
         /*마우스클릭시 적용되는 속성*/
-        .tb1 tr td:active{
+        .tb1 tr td:active {
             background-color: pink;
-            color:red;
+            color: red;
         }
     </style>
 </head>
+
 <body>
     <table border="1" style="width:300px;">
         <caption>[표 1]</caption>
-        <tr height="50" bgcolor="orange"><!--1줄-->
-            <td align="center">one</td><!--1칸-->
+        <tr height="50" bgcolor="orange">
+            <!--1줄-->
+            <td align="center">one</td>
+            <!--1칸-->
             <td align="right" valign="top">two</td>
             <td valign="bottom" bgcolor="gray">three</td>
         </tr>
@@ -59,10 +67,13 @@
     </table>
     <hr>
     <table class="tb1">
-        <caption><h2>[표 2]</h2></caption>
+        <caption>
+            <h2>[표 2]</h2>
+        </caption>
         <tr height="40">
             <th>사진</th>
-            <th>이름</th><!--1칸,헤더라는 의미 : 가운데정렬,굵게속성-->
+            <th>이름</th>
+            <!--1칸,헤더라는 의미 : 가운데정렬,굵게속성-->
             <th>주소</th>
             <th>핸드폰</th>
         </tr>
@@ -70,18 +81,26 @@
             <td rowspan="3">
                 <img src="../미야자키/06.png" width="80">
             </td>
-            <td>캔디</td><td>강남</td><td>010-222-3333</td>
+            <td>캔디</td>
+            <td>강남</td>
+            <td>010-222-3333</td>
         </tr>
         <tr>
-            <td>테리우스</td><td>여의도</td><td>02-1212-2323</td>
+            <td>테리우스</td>
+            <td>여의도</td>
+            <td>02-1212-2323</td>
         </tr>
         <tr>
-            <td>안쏘니</td><td>영등포</td><td>010-3434-5656</td>
+            <td>안쏘니</td>
+            <td>영등포</td>
+            <td>010-3434-5656</td>
         </tr>
     </table>
     <hr>
-    <table  class="tb2">
-        <caption><h3>ppt 48p</h3></caption>
+    <table class="tb2">
+        <caption>
+            <h3>ppt 48p</h3>
+        </caption>
         <tr>
             <td rowspan="3" valign="top" bgcolor="cyan">일</td>
             <td colspan="3" bgcolor="pink">이</td>
@@ -91,11 +110,13 @@
             <td rowspan="3" bgcolor="cyan" valign="bottom">사</td>
         </tr>
         <tr>
-            <td>오</td><td>육</td>
+            <td>오</td>
+            <td>육</td>
         </tr>
         <tr>
             <td colspan="3" bgcolor="pink">칠</td>
         </tr>
     </table>
 </body>
+
 </html>

@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--외부 css 파일 가져오기-->
-    <link rel="stylesheet" href="../style.css" />
-    <style>
-      img.mi {
-        width: 50px;
-      }
-    </style>
-  </head>
-  <body>
-    <!--body안에서 script 로 출력을 할경우 document.write로 출력 -->
-    <script>
-      document.write("<h3>여기는 script 영역입니다</h3>");
-      for (var i = 1; i <= 10; i++) {
-        document.write("hello script " + i + "<br>");
-      }
-    </script>
-    <hr />
-    <script>
-      for (var i = 1; i <= 20; i++) {
-        var imgname = "../imgae/미야자키/" + (i < 10 ? "0" : "") + i + ".png";
-        var s = "<img src=' " + imgname + " ' class='mi'>";
-        document.write(s);
-        if (i % 5 == 0) document.write("<br><br>");
-      }
-    </script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!--외부 css 파일 가져오기-->
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    img.mi {
+      width: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--body안에서 script 로 출력을 할경우 document.write로 출력 -->
+  <script>
+    document.write("<h3>여기는 script 영역입니다</h3>");
+    for (var i = 1; i <= 10; i++) {
+      document.write("hello script " + i + "<br>");
+    }
+  </script>
+  <hr />
+  <script>
+    for (var i = 1; i <= 20; i++) {
+      var imgname = "../imgae/미야자키/" + (i < 10 ? "0" : "") + i + ".png";
+      var s = "<img src=' " + imgname + " ' class='mi'>";
+      document.write(s);
+      if (i % 5 == 0) document.write("<br><br>");
+    }
+  </script>
+</body>
+
 </html>
