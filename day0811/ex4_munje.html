@@ -33,7 +33,7 @@
             //4. 이벤트
             //h3>b태그를 클릭하면 b태그의 글자를 가져와서 h2태그에 넣은 후 글자색을 랜덤하게 rgb를 구해서 적용
             //b태그 다음다음 태그인 span의 글자를 읽어서 img.photo의 src에 적용
-            
+
             $("h3>b").click(function () {
                 //현재 클릭한 곳(b)의 글자를 얻어서
                 var btag = $(this).text()
@@ -53,6 +53,13 @@
 
                 //img.phot인 사진의 src를 변경한다
                 $("img.photo").attr("src", iname)
+
+                //attr도 한꺼번에 여러 속성 변경시 {} 사용가능
+                $("img.photo").attr({
+                    src: iname,
+                    width: "300",
+                    title: "제이쿼리 어려워요"
+                })
             })
         })
     </script>
