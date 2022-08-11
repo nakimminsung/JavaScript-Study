@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +15,35 @@
     <script>
         //attr("속성") : 해당속성의 값을 반환
         //attr("속성","값") : 해당속성을 값으로 변경
-        $(function(){
-            
+        $(function () {
+            // 모든 img 태그에 마우스를 올리면 src 변경
+            $("img").mouseover(function () {
+                //마우스가 접근한 이미지의 객체는 this로 넘어온다
+
+                //src를 변경 전 현재 src를 따로 저장해둔다
+                imageName = $(this).attr("src");
+                //마우스가 접근한 이미지의 속성중 src 변경
+                $(this).attr("src", "../미야자키/10.png");
+            })
+
+            //마우스가 이미지에서 벗어나면 원래 이미지로 변경
+            $("img").mouseout(function () {
+                $(this).attr("src", imageName);
+            })
+
+            //mouseouver+mouseout 또는 mouseenter+mouseLeave
+            //주로 같이 쓰는 이벤트들인데 이 경우 hover로 한번에 줄 수 있다.
+            $("h3").hover(function(){
+                $(this).css("background-color","yellow");
+            },function(){
+                $(this).css("background-color","white");
+            });
+
+            //첫번째 이미지를 클릭하면 2번 img의 src에 같은 이미지 넣기
         })
     </script>
 </head>
+
 <body>
     <img src="../연예인사진/12.jpg" width="100px" irum="박보영"><br>
     <h3 width="300" height="200">윈도우 오픈</h3>
@@ -27,9 +52,11 @@
         <figcaption>에그마요덮밥</figcaption>
     </figure>
 
+    <h3>첫번째 이미지를 클릭하면 아래의 이미지에 카피하기</h3>
     <img src="" alt="사진1">
     <img src="" alt="사진2">
     <img src="" alt="사진3">
     <img src="" alt="사진4">
 </body>
+
 </html>
