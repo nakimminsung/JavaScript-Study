@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap=Single+Day&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        //     // jquery 사용시 window.onload에 해당 #1
+        //    $(document).ready(function(){
+        //     alert("처음 로딩시 호출")
+        //    });
+
+        // jquery 사용시 window.onload에 해당 #2
+        $(function () {
+            // alert("처음 로딩시 호출")
+            // 1. css : 스타일 변경 또는 반환 // 변경은 2개 , 반환은 1개
+
+            //방법 #1: 2번 연속 css 호출 적용
+            // $("#good").css("color","red");
+            // $("#good").css("background-color","yellow");
+
+            //방법 #2: 2번 연속 css 호출 적용
+            // $("#good").css("color","magenta").css("background-color","#ffffcc");
+
+            //방법 #3: style변경할 항목이 많을 경우
+            $("#good").css({
+                "color": "orange",
+                "background-color": "lightpink",
+                "width": "300px",
+                "border": "2px solid gray"
+            })
+
+            //selector가 복잡할 경우도 간단하게 처리 가능
+            //2군데 존재 : 동시 적용
+            $("div.hello>div").css({
+                "font-size": "3em",
+                "color": "blue",
+                "font-weight": "bold"
+            })
+            // #good의 배경색을 얻어서 div.hello의 글자색을 적용
+            // var bg = $("#good").css("background-color");
+            // $("div.hello").css("color",bg);
+
+            // 한줄로 줄여써보자
+            $("div.hello").css("color", $("#good").css("background-color"));
+
+            //div.bit 바로 아래의 img의 width를 100px로 변경
+            $("div.bit>img").css("width", "100px");
+
+            //body 태그 아래의 모든 태그의 글꼴을 jua로 변경
+            $("body *").css("font-family", "Jua");
+
+            //div.bit의 속성을 변경하는데 위치 이동(left:300px,height:150px,border:3px groove gold)
+            $("div.bit").css({
+                position: "absolute",
+                left: "400px",
+                top: "200px",
+                width: "300px",
+                height: "150px",
+                border: "3px groove gold"
+            })
+
+            //모든 b 태그의 글자색을 변경
+            $("b").css("color","magenta");
+
+            // b태그중에서 1번 인덱스만 변경 방법 #1
+            // $("b:eq(1)").css("background-color","orange");
+            // b태그중에서 1번 인덱스만 변경 방법 #2
+            $("b").eq(1).css("background-color","orange");
+
+            //전체 b태그중 첫번째꺼의 border 변경
+            // $("b:first").css("border","1px solid","red");
+            $("b").first().css("border","1px solid","red");
+
+            //전체 b태그중 마지막꺼의 border 변경
+            // $("b:last").css("border","2px dotted","purple");
+            $("b").last().css("border","2px dotted","purple");
+
+            //get(3): 3번 이후, lt(3) : 3번 이전
+            $("b:gt(1)").css("font-size","40px"); // 2번 인덱스부터 모두 변경됨
+            $("b:lt(2)").css("background-color","red"); // 0,1번 변경됨
+        }); // function close
+    </script>
+</head>
+
+<body>
+    <h2 id="good">h2 id good</h2>
+    <h3 class="good2">h3 class good2</h3>
+    <div class="hello">
+        div class hello
+        <div>
+            div hello 아래 <div></div>
+        </div>
+    </div>
+    <div class="bit">
+        <b>div bit 아래 b태그 0번</b>
+        <span>div bit 아래 span 태그</span>
+        <img src="../미야자키/05.png">
+    </div>
+    <div class="hello">
+        div hello2
+        <img src="../음식사진/12.jpg">
+        <div>div hello 아래의 div태그</div>
+    </div>
+    <b>1번 단독 b 태그 #1</b><b>2번 단독 b 태그 #2</b><b>3번 단독 b 태그 #3</b>
+
+
+</body>
+
+</html>
