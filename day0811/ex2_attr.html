@@ -40,12 +40,20 @@
             });
 
             //첫번째 이미지를 클릭하면 2번 img의 src에 같은 이미지 넣기
+            $("img:first").click(function(){
+                //현재 이미지를 얻는다
+                var curName=$(this).attr("src");
+                //width 값 얻기 
+                var w=$(this).attr("width");
+                //2번 인덱스의 이미지 저장
+                $("img:eq(2)").attr("src",curName).css("width",w);
+            })
         })
     </script>
 </head>
 
 <body>
-    <img src="../연예인사진/12.jpg" width="100px" irum="박보영"><br>
+    <img src="../연예인사진/12.jpg" width="150px" irum="박보영"><br>
     <h3 width="300" height="200">윈도우 오픈</h3>
     <figure>
         <img src="../음식사진/10.jpg">
