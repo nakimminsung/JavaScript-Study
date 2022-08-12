@@ -48,11 +48,35 @@
         <label><input type="checkbox" class="del" num="5">자유글 5번</label>
         <br><br>
         <button type="button" class="btn btn-outline-info btn-lg" style="width: 200px;" id="btn2">전체 선택/해제</button>
+        <button type="button" class="btn btn-outline-danger btn-lg" style="width: 200px;" id="btn3">선택 글 삭제</button>
+        <br>
+        <h1></h1>
         <script>
             $("#btn2").click(function () {
-               
+                $("input[class=del]").prop("checked", !$("input[class=del]").is(":checked"));
             })
+
+            $("#btn3").click(function () {
+                var s = "";
+
+                //체크된 길이를 구한다
+                var len = $("input[class='del']:checked").length;
+
+                //체크된 것만 반복문 돌려서 num값을 가져온다
+                $("input[class='del']:checked").each(function (idx) {
+                    s += "[" + $(this).attr("num") + "]";
+                    //실제 체크박스 삭제
+                    //parent():부모태그, 여기서는 label태그
+                    $(this).parent().remove();
+                });
+                if (len == 0)
+                    $("h1").html("<b>선택한 게시글이 없습니다</b>");
+                else {
+                    $("h1").html("<b>" + s + "번글 삭제함</b>");
+                };
+            });
         </script>
+
     </div>
 </body>
 
