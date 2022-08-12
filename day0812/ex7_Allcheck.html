@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap=Single+Day&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        body * {
+            /* 최상위 태그의 2배 : rem */
+            font-size: 2rem;
+            font-family: 'Jua';
+        }
+
+        input[type=radio],
+        input[type=checkbox] {
+            -webkit-transform: scale(2);
+            /* Safari and Chrome */
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin:100px;">
+        <input type="checkbox" id="chk1"> 버튼클릭
+        &nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn-outline-warning" id="btn1">체크/해제</button>
+        <br><br>
+        <script>
+            $("#btn1").click(function () {
+                // 현재 체크상태를 체크해서 그 반대로 체크값을 준다
+                //prop("속성",값) : 주로 속성 중 true,false로 되는 것들은 prop으로 변경
+                $("#chk1").prop("checked", !$("#chk1").is(":checked"));
+            })
+        </script>
+        <hr>
+
+        <label><input type="checkbox" class="del" num="1">자유글 1번</label>
+        <label><input type="checkbox" class="del" num="2">자유글 2번</label>
+        <label><input type="checkbox" class="del" num="3">자유글 3번</label>
+        <label><input type="checkbox" class="del" num="4">자유글 4번</label>
+        <label><input type="checkbox" class="del" num="5">자유글 5번</label>
+        <br><br>
+        <button type="button" class="btn btn-outline-info btn-lg" style="width: 200px;" id="btn2">전체 선택/해제</button>
+        <script>
+            $("#btn2").click(function () {
+               
+            })
+        </script>
+    </div>
+</body>
+
+</html>
