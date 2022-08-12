@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 </head>
+
 <body>
     <h2>select문 연습</h2>
     <select id="sel1" class="form-control" style="width:200px;">
@@ -24,18 +26,55 @@
     <img src="../jquery_image/image_01.png" id="photo1" alt="사진1">
     <h3></h3>
     <script>
-        $("#sel1").change(function(){
+        $("#sel1").change(function () {
             //value값을 얻어서 이미지 출력
-            var iname = "../jquery_image/"+$(this).val()+".jpg";
-            $("#photo1").attr("src",iname);
+            var iname = "../jquery_image/" + $(this).val() + ".jpg";
+            $("#photo1").attr("src", iname);
 
             //선택된 텍스트를 얻어서 첫번째 h3에 넣기
             // var stext=$(this).text(); // 이렇게 쓰면 모든 텍스트가 다 나온다
-            var stext=$("#sel1 option:selected").text() // 선택된 것만 나온다 이거 적어놓으라하셨음
-            $("h3:eq(0)").text(stext)
+            // var stext=$("#sel1 option:selected").text(); // 선택된 것만 나온다 이거 적어놓으라하셨음
+            var stext = $("option:selected", this).text();
+            $("h3:eq(0)").text(stext);
         })
     </script>
     <hr>
+    <h2>select문 연습2</h2>
+    <select id="sel2" class="form-control" style="width:200px;">
+        <option hidden disabled selected>색상을 선택하세요</option>
+        <option>red</option>
+        <option>green</option>
+        <option>orange</option>
+        <option>blue</option>
+    </select>
 
+    <h3>Have a Good Day!!!</h3>
+
+    <script>
+        $("#sel2").change(function () {
+            $("h3:eq(1)").css("color", $(this).val());
+        });
+    </script>
+
+    <h2>select문 연습2</h2>
+    <select id="sel3" class="form-control" style="width:200px;">
+        <option hidden disabled selected>글꼴을 선택하세요</option>
+        <option value="Jua">글꼴1</option>
+        <option value="Edu VIC WA NT Beginner">글꼴2</option>
+        <option value="Gamja Flower">글꼴3</option>
+        <option value="Nanum Pen Script">글꼴4</option>
+    </select>
+    <h3></h3>
+    <script>
+         // 글꼴 선택시 h3에 다음과 같이 출력 '글꼴 2: Edu .. ' 이렇게 출력하고
+         // 해당 글꼴을 적용시키시오
+         $("#sel3").change(function(){
+            var sv=$(this).val();
+            var st=$("#sel3 option:selected").text(); // 방법1
+            // var st=$("option:selected",this).text(); // 방법2
+            $("h3:eq(2)").text(st+':'+sv).css("font-family",sv);
+         })
+    </script>
 </body>
+
 </html>
