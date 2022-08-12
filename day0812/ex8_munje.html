@@ -16,13 +16,13 @@
 <body>
     <div style="margin-left:200px;width: 500px;">
         <h4>글꼴모양을 선택하세요</h4>
-        <label><input type="checkbox" id="ffont1">굵게</label>
-        <label><input type="checkbox" id="ffont2">기울게</label>
-        <label><input type="checkbox" id="ffont3">밑줄</label>
+        <label><input type="checkbox" id="ffont1" value="bold">굵게</label>
+        <label><input type="checkbox" id="ffont2" value="italic">기울게</label>
+        <label><input type="checkbox" id="ffont3" value="underline">밑줄</label>
         <hr>
 
         <h4>글꼴 색상 선택</h4>
-        <select id="fcolor" style="width:200px;">
+        <select id="fcolor">
             <option value="red">빨강</option>
             <option value="yellow">노랑</option>
             <option value="orange">오렌지</option>
@@ -32,27 +32,41 @@
 
         <hr>
         <h4>글꼴 크기 선택</h4>
-        <select id="fsize" style="width:200px;">
-            <option value="15px;">작게</option>
-            <option value="30px;">중간</option>
-            <option value="50px;">크게</option>
+        <select id="fsize">
+            <option value="15px">작게</option>
+            <option value="30px">중간</option>
+            <option value="50px">크게</option>
         </select>
-
 
         <hr>
         <button type="button" class="btn btn-info btn-lg">글꼴변경</button>
 
         <hr>
         <h2>안녕하세요 Have a nice Day</h2>
+
         <script>
-            $("h2")
-        // 글꼴 변경 클릭시 모든 값을 읽어와서 적용시키시오
+            $(".btn").click(function () {
+                // 글꼴 변경 클릭시 모든 값을 읽어와서 적용시키시오
+                // 체크박스는 각각의 체크값을 읽어와서 적용해야 하므로 각각 id로 주세요
 
-        // 체크박스는 각각의 체크값을 읽어와서 적용해야 하므로 각각 id로 주세요
+                var s1 = $("input[id='ffont1']:checked").val();
+                $("h2").css("font-weight", s1);
 
-        // 글꼴 색상은 임의로 색상 옵션을 5가지 정도 추가하시오
+                var s2 = $("input[id='ffont2']:checked").val();
+                $("h2").css("font-style", s2);
 
-        // 글꼴 크기도 임의로 4가지 정도 추가하시오
+                var s3 = $("input[id='ffont3']:checked").val();
+                $("h2").css("text-decoration", s3);
+
+                // 글꼴 색상은 임의로 색상 옵션을 5가지 정도 추가하시오
+                var c1 = $("#fcolor option:checked").val();
+                $("h2").css("color", c1);
+
+                // 글꼴 크기도 임의로 4가지 정도 추가하시오
+                var c2 = $("#fsize option:checked").val();
+                $("h2").css("font-size", c2);
+            })
+
         </script>
     </div>
 </body>
