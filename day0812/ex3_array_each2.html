@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style>
+    #show>div{
+        width: 400px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 2em;
+        border: 3px groove gold;
+        /* text-align: center; */
+    }
+</style>
+
+<script>
+    $(function(){
+        //배열 안에 객체 형태
+        var array=[
+            {font:"Edu VIC WA NT Beginner",bcolor:"pink",fcolor:"blue"}, // 객체 (3개의 변수가 있다)
+            {font:"Jua",bcolor:"lightgray",fcolor:"red"}, // 객체 (3개의 변수가 있다)
+            {font:"Gamja Flower",bcolor:"black",fcolor:"white"} // 객체 (3개의 변수가 있다)
+        ]
+
+        var s = "";
+        $.each(array,function(idx,data){
+            //ess문법
+            // s+="<div style='font-family:"+data.font+";color:"+data.fcolor+";background-color:"+data.bcolor+"'>"
+
+            //es6문법
+            s+=`<div style='font-family:${data.font};color:${data.fcolor};background-color:${data.bcolor}'>`
+            s+=data.font
+            s+="</div><br>"
+        })
+        $("#show").html(s);
+    })
+</script>
+</head>
+<body>
+    <div id="show"></div>
+</body>
+</html>
