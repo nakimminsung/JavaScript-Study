@@ -32,6 +32,22 @@
 
                 var len = $("input[name='hobby']:checked").length;
                 s += "내 취미 : " + len + "개<br>";
+
+                if (len > 0) {
+                    s += "취 미 : ";
+                    // $("input[name='hobby']").each(function (idx) {
+                    //     if ($(this).is(":checked")) {
+                    //         s += "[" + $(this).val() + "]&nbsp";
+                    //     }
+                    // })
+
+
+                    // 체크된것만 반복
+                    $("input[name='hobby']:checked").each(function (idx) {
+                        s += "[" + $(this).val() + "]&nbsp;"
+                    })
+                    s += "<br>";
+                }
                 $("#result").html(s);
             })
         })
