@@ -91,25 +91,25 @@
             // 체크박스는 각각의 체크값을 읽어와서 적용해야 하므로 각각 id로 주세요
 
             var s1 = $("input[id='ffont1']:checked").val();
-            $("h2").css("font-weight", s1);
+            $("h3").css("font-weight", s1);
 
             var s2 = $("input[id='ffont2']:checked").val();
-            $("h2").css("font-style", s2);
+            $("h3").css("font-style", s2);
 
             var s3 = $("input[id='ffont3']:checked").val();
-            $("h2").css("text-decoration", s3);
+            $("h3").css("text-decoration", s3);
 
             // 글꼴 색상은 임의로 색상 옵션을 5가지 정도 추가하시오
             var c1 = $("#fcolor option:checked").val();
-            $("h2").css("color", c1);
+            $("h3").css("color", c1);
 
             // 글꼴 크기도 임의로 4가지 정도 추가하시오
             var c2 = $("#fsize option:checked").val();
-            $("h2").css("font-size", c2);
+            $("h3").css("font-size", c2);
 
             // 글자 폰트도 변경하시오
             var c2 = $("#fffont option:checked").val();
-            $("h2").css("font-family", c2);
+            $("h3").css("font-family", c2);
         })
 
     </script>
