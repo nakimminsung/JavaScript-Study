@@ -11,64 +11,109 @@
         href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap=Single+Day&display=swap"
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+
+    </style>
 </head>
 
 <body>
-    <div style="margin-left:200px;width: 500px;">
-        <h4>글꼴모양을 선택하세요</h4>
-        <label><input type="checkbox" id="ffont1" value="bold">굵게</label>
-        <label><input type="checkbox" id="ffont2" value="italic">기울게</label>
-        <label><input type="checkbox" id="ffont3" value="underline">밑줄</label>
-        <hr>
+    <table style="border: 1px solid gray;" width="400px">
+        <div>
+            <tr>
+                <td>
+                    <h4>글꼴모양을 선택하세요</h4>
+                    <label><input type="checkbox" id="ffont1" value="bold">굵게</label>
+                    <label><input type="checkbox" id="ffont2" value="italic">기울게</label>
+                    <label><input type="checkbox" id="ffont3" value="underline">밑줄</label>
+                </td>
+            </tr>
+        </div>
 
-        <h4>글꼴 색상 선택</h4>
-        <select id="fcolor">
-            <option value="red">빨강</option>
-            <option value="yellow">노랑</option>
-            <option value="orange">오렌지</option>
-            <option value="blue">파랑</option>
-            <option value="pink">핑크</option>
-        </select>
+        <div>
+            <tr>
+                <td>
+                    <h4>글꼴 색상 선택</h4>
+                    <select id="fcolor">
+                        <option hidden disabled selected>색상을 선택하세요</option>
+                        <option value="red">빨강</option>
+                        <option value="yellow">노랑</option>
+                        <option value="orange">오렌지</option>
+                        <option value="blue">파랑</option>
+                        <option value="pink">핑크</option>
+                        <option value="black">검정</option>
+                    </select>
+                </td>
+            </tr>
+        </div>
 
-        <hr>
-        <h4>글꼴 크기 선택</h4>
-        <select id="fsize">
-            <option value="15px">작게</option>
-            <option value="30px">중간</option>
-            <option value="50px">크게</option>
-        </select>
+        <div>
+            <tr>
+                <td>
+                    <h4>글꼴 크기 선택</h4>
+                    <select id="fsize">
+                        <option hidden disabled selected>크기를 선택하세요</option>
+                        <option value="15px">작게</option>
+                        <option value="30px">중간</option>
+                        <option value="50px">크게</option>
+                    </select>
+                </td>
+            </tr>
+        </div>
 
-        <hr>
-        <button type="button" class="btn btn-info btn-lg">글꼴변경</button>
+        <div>
+            <tr>
+                <td>
+                    <h4>폰트 변경</h4>
+                    <select id="fffont">
+                        <option hidden disabled selected>폰트를 선택하세요</option>
+                        <option value="Edu VIC WA NT Beginner">Edu</option>
+                        <option value="Gamja Flower">감자</option>
+                        <option value="Nanum Pen Script">나눔펜스크립트</option>
+                    </select>
+                </td>
+            </tr>
+        </div>
 
-        <hr>
-        <h2>안녕하세요 Have a nice Day</h2>
+        <div>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-info btn-lg">글꼴변경</button>
+                </td>
+            </tr>
+        </div>
+    </table>
 
-        <script>
-            $(".btn").click(function () {
-                // 글꼴 변경 클릭시 모든 값을 읽어와서 적용시키시오
-                // 체크박스는 각각의 체크값을 읽어와서 적용해야 하므로 각각 id로 주세요
+    <h3 style="margin-left: 100px;">안녕하세요 Have a nice Day</h3>
 
-                var s1 = $("input[id='ffont1']:checked").val();
-                $("h2").css("font-weight", s1);
+    <script>
+        $(".btn").click(function () {
+            // 글꼴 변경 클릭시 모든 값을 읽어와서 적용시키시오
+            // 체크박스는 각각의 체크값을 읽어와서 적용해야 하므로 각각 id로 주세요
 
-                var s2 = $("input[id='ffont2']:checked").val();
-                $("h2").css("font-style", s2);
+            var s1 = $("input[id='ffont1']:checked").val();
+            $("h2").css("font-weight", s1);
 
-                var s3 = $("input[id='ffont3']:checked").val();
-                $("h2").css("text-decoration", s3);
+            var s2 = $("input[id='ffont2']:checked").val();
+            $("h2").css("font-style", s2);
 
-                // 글꼴 색상은 임의로 색상 옵션을 5가지 정도 추가하시오
-                var c1 = $("#fcolor option:checked").val();
-                $("h2").css("color", c1);
+            var s3 = $("input[id='ffont3']:checked").val();
+            $("h2").css("text-decoration", s3);
 
-                // 글꼴 크기도 임의로 4가지 정도 추가하시오
-                var c2 = $("#fsize option:checked").val();
-                $("h2").css("font-size", c2);
-            })
+            // 글꼴 색상은 임의로 색상 옵션을 5가지 정도 추가하시오
+            var c1 = $("#fcolor option:checked").val();
+            $("h2").css("color", c1);
 
-        </script>
-    </div>
+            // 글꼴 크기도 임의로 4가지 정도 추가하시오
+            var c2 = $("#fsize option:checked").val();
+            $("h2").css("font-size", c2);
+
+            // 글자 폰트도 변경하시오
+            var c2 = $("#fffont option:checked").val();
+            $("h2").css("font-family", c2);
+        })
+
+    </script>
+
 </body>
 
 </html>
