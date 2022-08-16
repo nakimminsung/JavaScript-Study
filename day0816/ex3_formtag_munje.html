@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        .photo {
+            position: absolute;
+            left: 500px;
+            top: 100px;
+            width: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3 class="alert alert-warning">BS5의 Dropdowns로 이미지 선택, range로 이미지 크기조정</h3>
+
+    <div class="사진선택" style="margin-left: 100px;">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            Dropdown button
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" src="../음식사진/1.jpg">이미지1</a></li>
+            <li><a class="dropdown-item" href="#" src="../음식사진/2.jpg">이미지2</a></li>
+            <li><a class="dropdown-item" href="#" src="../음식사진/3.jpg">이미지3</a></li>
+            <li><a class="dropdown-item" href="#" src="../음식사진/4.jpg">이미지4</a></li>
+        </ul>
+        <b class="foodname"></b>
+    </div>
+
+    <br><br>
+    <h5>사진의 현재 너비로 range값과 그 뒤의 b태그에 값 넣기</h5>
+    <label for="rangewidth" class="form-label">크기조절</label>
+    <input type="range" class="form-range" id="rangewidth" min="50" max="300" step="5" style="width:300px;">
+    <b></b>
+    <img src="../음식사진/12.jpg" class="photo">
+
+
+    <script>
+        //dropdown 선택시 이벤트
+        $("ul.dropdown-menu a.dropdown-item").click(function () {
+            var iname = $(this).attr("src");
+            var inametext = $(this).text();
+            $(".foodname").text(iname + ":" + inametext);
+            $("img.photo").attr("src", iname)
+        })
+
+        //현재 이미지 너비로 초기화
+        var w = parseInt($("img.photo").css("width"));
+        console.log(w);
+        $("#rangewidth").val(w);
+        $("#rangewidth").next().text(w); // next()가 뒤에 있는 b태그
+
+        $("#rangewidth").mousemove(function () {
+            //현재값
+            var curw = $(this).val();
+            $(this).next().text(curw);
+            $("img.photo").css("width", curw + "px");
+        })
+    </script>
+</body>
+
+</html>
