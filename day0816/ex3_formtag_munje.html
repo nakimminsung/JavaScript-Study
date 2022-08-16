@@ -68,6 +68,12 @@
             $(this).next().text(curw);
             $("img.photo").css("width", curw + "px");
         })
+        $("#rangewidth").change(function () {
+            //현재값
+            var curw = $(this).val();
+            $(this).next().text(curw);
+            $("img.photo").css("width", curw + "px");
+        })
     </script>
 </body>
 
