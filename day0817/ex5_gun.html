@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,30 +12,63 @@
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <style>
-        .gun{
+        .gun {
             width: 300px;
             height: 250px;
             background-image: url('../jquery_image/gun.png');
             background-position: left top;
-        }   
-        .gun:active{
+        }
+
+        .gun:active {
             background-position: right bottom;
+        }
+
+        .cd1,
+        .cd2,
+        .cd3 {
+            width: 490px;
+            height: 500px;
+        }
+
+        .cd1 {
+            background-image: url(../jquery_image/cd-sprite.png);
+            background-position: top;
+        }
+
+        .cd2 {
+            background-image: url(../jquery_image/cd-sprite.png);
+            background-position: center;
+        }
+
+        .cd3 {
+            background-image: url(../jquery_image/cd-sprite.png);
+            background-position: bottom;
         }
     </style>
     <script>
-        $(function(){
-            $(".gun").click(function(){
-                // var j = new Audio("../jang.wav");
-                // var f = new Audio("../fire.wav");
-                var t = new Audio("../기관총 두둗.wav");
-                // j.play();
-                // f.play();
-                t.play();
+        $(function () {
+            $(".gun").click(function () {
+                var j = new Audio("../jang.wav");
+                var f = new Audio("../fire.wav");
+                // var t = new Audio("../기관총 두둗.wav");
+                j.play();
+                f.play();
+                // t.play();
             })
         })
     </script>
 </head>
+
 <body>
+    <h2>클릭하면 총쏘기!</h2>
     <div class="gun"></div>
+    <hr>
+    <h2>cd 3장 분리하기</h2>
+    <div class="cd1"></div>
+    <br>
+    <div class="cd2"></div>
+    <br>
+    <div class="cd3"></div>
 </body>
+
 </html>
