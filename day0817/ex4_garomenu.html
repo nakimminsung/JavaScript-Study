@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,111 +12,128 @@
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <style>
-        a{text-decoration: none;}
-        ul li{list-style: none;}
-        li.main{float: left;}
-        li.main>a{
+        a {
+            text-decoration: none;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        li.main {
+            float: left;
+        }
+
+        li.main>a {
             display: block;
             width: 180px;
             color: #333;
             font-weight: bold;
             font-family: 'Jua';
         }
- 
-        li.main>a:hover{
-            cursor: pointer;            
+
+        li.main>a:hover {
+            cursor: pointer;
         }
- 
-        ul.submenu{
+
+        ul.submenu {
             margin-left: 0px;
             font-size: 14px;
             font-family: 'Jua';
             padding-left: 0px;
             margin-top: 15px;
         }
- 
-        ul.submenu>li{
+
+        ul.submenu>li {
             display: block;
             width: 180px;
             height: 20px;
             color: #333;
         }
- 
-        ul.submenu>li:hover{
-            color:#ff720b;
+
+        ul.submenu>li:hover {
+            color: #ff720b;
             cursor: pointer;
         }
     </style>
     <script>
-        $(function(){
-            $("li.main>a").hover(function(){
-                $(this).css("color","orange");
-            },function(){
-                $(this).css("color","black");
+        $(function () {
+            $("li.main>a").hover(function () {
+                $(this).css("color", "orange");
+            }, function () {
+                $(this).css("color", "black");
             });
 
             //서브메뉴 처음에 안보이게 처리
             $("ul.submenu").hide();
 
             //메인제목에 마우스를 올리면 서브메뉴가 보이고 벗어나면 사라지게 하기
-            $("li.main>a").mouseover(function(){
+            $("li.main>a").mouseover(function () {
                 // $(this).next().slideDown('slow');// 방법1
-                $(this).siblings().slideDown('fast');// 방법2
+                $(this).siblings().slideDown('slow');// 방법2
                 $(this).parent().siblings().find("ul.submenu").slideUp('fast');
             })
 
-            $("li.main>a").click(function(){
+            // 메인 제목 클릭시 서브메뉴가 나타났다 사라졌다 하기
+            $("li.main>a").click(function () {
                 $(this).siblings().slideToggle('fast');
+            })
+
+            $("ul.submenu").hover(function () {
+                $(this).slideDown();
+            }, function () {
+                $(this).slideUp();
             })
         });
     </script>
 </head>
-<body>
-<div>
-    <ul>
-        <!--1번째 메뉴-->
-        <li class="main">
-            <a>비트캠프안내</a>
-            <ul class="submenu">
-                <li>초대의 글</li>
-                <li>주변안내</li>
-                <li>찾아오시는 길</li>                
-            </ul>
-        </li>
- 
-        <!--2번째 메뉴-->
-        <li class="main">
-            <a>강의장안내</a>
-            <ul class="submenu">
-                <li>601</li>
-                <li>701</li>
-                <li>801</li>
-                <li>901</li>              
-            </ul>
-        </li>
- 
-         <!--3번째 메뉴-->
-         <li class="main">
-            <a>정보광장</a>
-            <ul class="submenu">
-                <li>자유게시판</li>
-                <li>Q&A게시판</li>
-                <li>방명록</li>          
-            </ul>
-        </li>
- 
-         <!--4번째 메뉴-->
-         <li class="main">
-            <a>과정안내</a>
-            <ul class="submenu">
-                <li>강남구청과정</li>
-                <li>노동부과정</li>
-                <li>자바단과</li>
-                <li>리액트단과</li>              
-            </ul>
-        </li>
-    </ul>
-</div>
-</body>
-</html>
 
+<body>
+    <div>
+        <ul>
+            <!--1번째 메뉴-->
+            <li class="main">
+                <a>비트캠프안내</a>
+                <ul class="submenu">
+                    <li>초대의 글</li>
+                    <li>주변안내</li>
+                    <li>찾아오시는 길</li>
+                </ul>
+            </li>
+
+            <!--2번째 메뉴-->
+            <li class="main">
+                <a>강의장안내</a>
+                <ul class="submenu">
+                    <li>601</li>
+                    <li>701</li>
+                    <li>801</li>
+                    <li>901</li>
+                </ul>
+            </li>
+
+            <!--3번째 메뉴-->
+            <li class="main">
+                <a>정보광장</a>
+                <ul class="submenu">
+                    <li>자유게시판</li>
+                    <li>Q&A게시판</li>
+                    <li>방명록</li>
+                </ul>
+            </li>
+
+            <!--4번째 메뉴-->
+            <li class="main">
+                <a>과정안내</a>
+                <ul class="submenu">
+                    <li>강남구청과정</li>
+                    <li>노동부과정</li>
+                    <li>자바단과</li>
+                    <li>리액트단과</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
