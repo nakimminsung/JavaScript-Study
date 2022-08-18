@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        b.view{
+            cursor: pointer;
+        }
+        div.mytooltip{
+            line-height: 1.5;
+            color: white;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 10px;
+            font-size: 12px;
+            border-radius: 30px;
+
+            position: absolute;
+            opacity: 0.8;
+            display: none;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("a").bind({
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn();
+                },
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",
+                        top:e.pageY+"px"
+                    });
+                }
+            });
+
+            $("b.view").bind({
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn();
+                },
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",
+                        top:e.pageY+"px",
+                        color:"magenta"
+                    });
+
+                    //b태그 안의 글자를 툴팁에 넣기(작은 이미지와 함께)
+                    var s="<img src='../미야자키/02.png' width='60'>";
+                    s+="<b>"+$(this).text()+"</b>";
+
+                    $("div.mytooltip").html(s);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h3>tooltip 링크 부분에 마우스를 올려보세요</h3>
+    <a style="font-size: 20px;">tooltip</a>
+    <br>
+    <pre>
+        안녕하세요
+        반가워요 
+        오늘은 목요일입니다
+        전날(17일) 0시 기준 코로나19 신규 확진자 수가 <b class="view">18만 명을 넘어선 데 이어 오늘 발표에서도 18만 명에 육박했습니다.</b> 이번 재유행의 정점으로 예측된 하루 20만 명에 가까워지고 있는 겁니다.
+
+오늘(18일) 0시 기준 코로나19 신규 확진자 수는 17만 8,574명으로 집계됐습니다.
+
+일주일 전보다 약 4만 명 가량 늘었습니다.
+
+발생 경로를 보면 국내에서 17만 7,941명이 나왔고, 해외에서 633명 유입됐습니다.
+
+<b class="view">위중증 환자 수는 1명</b> 증가해 재원 중인 위중증 환자는 470명으로 나타났습니다.
+
+하루 사이 사망자는 61명 늘었습니다.
+
+<b class="view">지난 12일부터</b> 최근 일주일 동안 신규 확진자 추이를 보면 12만 8,679명 → 12만 4,569명 → 11만 9,580명 → 6만 2,077명 → 8만 4,128명 →18만 803명 →17만 8,574명입니다. 일 평균 12만 5,488명 발생했습니다.
+
+같은 기간 위중증 환자 수 추이는 453명 → 469명 → 512명 → 521명 → 563명 → 469명 → 470명입니다.
+
+사망자의 경우 58명 → 67명 → 57명 → 50명 → 37명 → 42명 →61명으로 일주일 동안 372명의 사망자가 발생했습니다.
+
+    </pre>
+    <div class="mytooltip">
+        Java<br>
+        HTML5<br>
+        CSS3<br>
+        ES5<br>
+        Oracle<br>
+    </div>
+</body>
+</html>
